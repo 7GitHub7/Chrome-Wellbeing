@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "YT Shorts Blocker",
+  "version": "1.0",
+  "description": "Ukrywa i przekierowuje Shorts na YouTube",
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ]
+}
