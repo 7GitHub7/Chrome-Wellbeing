@@ -1,11 +1,19 @@
 {
   "manifest_version": 3,
-  "name": "YT Shorts Blocker",
+  "name": "Wellbeing Blocker",
   "version": "1.0",
-  "description": "Ukrywa i przekierowuje Shorts na YouTube",
+  "description": "Blokuj rozpraszające treści i dbaj o wellbeing.",
+  "permissions": ["storage", "scripting", "tabs"],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
   "content_scripts": [
     {
-      "matches": ["*://*.youtube.com/*"],
+      "matches": ["<all_urls>"],
       "js": ["content.js"],
       "run_at": "document_start"
     }
