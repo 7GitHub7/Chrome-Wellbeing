@@ -1,40 +1,33 @@
+const pages = ["youtube.com", "facebook.com"]
+
 chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
     const tab = tabs[0];
     const host = new URL(tab.url).hostname.replace("www.", "");
     console.log("host", host)
 
+    chrome.storage.sync.get(["blockedPages"], ({ blockedPages }) => {
+        console.log(blockedPages);
+        if (!blockedPages) return;
 
-    const sectionOptions = {
-        "youtube.com": ["feed"],
-        "facebook.com": ["feed"]
-    };
-
-    if (!sectionOptions[host]) {
-        sectionsContainer.textContent = "Brak gotowych sekcji dla tej strony.";
-        return;
-    }
-
-    chrome.storage.sync.get(["sectionRules"], ({ sectionRules }) => {
-        const hostRules = sectionRules[host] || {};
-        sectionOptions[host].forEach(section => {
+        Object.keys(blockedPages).forEach(page => {
+            console.log(blockedPages[page])
             const label = document.createElement("label");
             const checkbox = document.createElement("input");
             checkbox.type = "checkbox";
-            checkbox.checked = hostRules[section] || false;
-            checkbox.id = section;
+            checkbox.checked = blockedPages[page]
+            checkbox.id = page;
             label.appendChild(checkbox);
-            label.appendChild(document.createTextNode(" " + section));
+            label.appendChild(document.createTextNode(" " + page));
             sectionsContainer.appendChild(label);
         });
     });
 
     saveBtn.addEventListener("click", () => {
-        console.log("saved")
         const newRules = {};
-        sectionOptions[host].forEach(section => {
-            const checkbox = document.getElementById(section);
-            newRules[section] = checkbox.checked;
+        pages.forEach(page => {
+            const checkbox = document.getElementById(page);
+            newRules[page] = checkbox.checked;
         });
-        chrome.runtime.sendMessage({ type: "saveRules", host, rules: newRules });
+        chrome.runtime.sendMessage({ type: "savePages", blockedPages: newRules });
     });
 });

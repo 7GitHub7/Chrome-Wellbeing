@@ -1,12 +1,15 @@
+const pages = {
+    "youtube.com": false,
+    "facebook.com": false
+};
 chrome.runtime.onInstalled.addListener(() => {
-    chrome.storage.sync.set({ sectionRules: {} });
+    chrome.storage.sync.set({ blockedPages: pages });
 });
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    if (message.type === "saveRules") {
-        chrome.storage.sync.get(["sectionRules"], ({ sectionRules }) => {
-            sectionRules[message.host] = message.rules;
-            chrome.storage.sync.set({ sectionRules });
-        });
+    console.log("message", message)
+    if (message.type === "savePages") {
+        chrome.storage.sync.set({ blockedPages: message.blockedPages });
     }
+
 });
