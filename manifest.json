@@ -2,8 +2,8 @@
   "manifest_version": 3,
   "name": "Wellbeing Blocker",
   "version": "1.0",
-  "description": "Blokuj rozpraszające treści i dbaj o wellbeing.",
-  "permissions": ["storage", "scripting", "tabs"],
+  "description": "Block distracting content and take care of your wellbeing.",
+  "permissions": ["storage"],
   "host_permissions": ["<all_urls>"],
   "action": {
     "default_popup": "popup.html"
