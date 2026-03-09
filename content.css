@@ -19,7 +19,7 @@ facebook.com div[role='main'] {
 }
 
 /* Pepper */
-pepper.pl .listLayout-main,  
-pepper.pl #footer  {
+pepper.pl .listLayout-main,
+pepper.pl #footer {
     display: none !important;
 }
