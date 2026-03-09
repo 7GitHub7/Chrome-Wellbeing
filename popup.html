@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Wellbeing Blocker</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Roboto, sans-serif;
+      width: 280px;
+      padding: 15px;
+      background: #fff;
+      color: #333;
+    }
+
+    h3 {
+      margin: 0 0 15px 0;
+      text-align: center;
+      font-size: 16px;
+    }
+
+    .page-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+      min-height: 30px;
+    }
+
+    .page-item:last-child {
+      border-bottom: none;
+    }
+
+    .page-name {
+      font-size: 14px;
+      flex-grow: 1;
+    }
+
+    input[type="checkbox"] {
+      transform: scale(1.2);
+      accent-color: #d93025;
+      cursor: pointer;
+    }
+
+    .timer-badge {
+      background: #f0f2f5;
+      color: #d93025;
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: bold;
+      cursor: pointer;
+      border: 1px solid #e1e4e8;
+      min-width: 60px;
+      text-align: center;
+    }
+
+    .timer-badge:hover {
+      background: #ffebeb;
+    }
+
+    .hint {
+      margin-top: 15px;
+      font-size: 11px;
+      color: #999;
+      text-align: center;
+      border-top: 1px solid #eee;
+      padding-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <h3>Active Blocks</h3>
+  <div id="sectionsContainer"></div>
+
+  <div class="hint">
+    Click timer to cancel unlock.
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>

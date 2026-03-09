@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Blocker Settings</title>
+    <style>
+        body {
+            font-family: "Segoe UI", sans-serif;
+            padding: 40px;
+            background: #f4f6f8;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 24px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 15px;
+        }
+
+        .setting-row {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .description {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .label-text {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="checkbox"] {
+            transform: scale(1.5);
+            accent-color: #0078d7;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Advanced Settings</h1>
+
+    <div class="setting-row">
+        <div>
+            <span class="label-text">Weekend Pass</span>
+            <span class="description">Automatically disable blocking on Saturday and Sunday.</span>
+        </div>
+        <input type="checkbox" id="weekendMode">
+    </div>
+
+    <script src="options.js"></script>
+</body>
+
+</html>

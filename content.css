@@ -1,0 +1,25 @@
+/*
+ # = ID selector
+. = class selector
+no prefix = element/tag selector
+[attribute] = attribute selector (like div[role='main']) 
+*/
+
+/* content.css */
+/* YouTube */
+youtube.com #contents,
+youtube.com #shorts-container,
+youtube.com ytd-shorts {
+    display: none !important;
+}
+
+/* Facebook */
+facebook.com div[role='main'] {
+    display: none !important;
+}
+
+/* Pepper */
+pepper.pl .listLayout-main,  
+pepper.pl #footer  {
+    display: none !important;
+}
